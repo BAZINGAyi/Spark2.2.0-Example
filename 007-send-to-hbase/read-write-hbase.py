@@ -1,7 +1,7 @@
 from pyspark import SparkContext
 
 host = 'zookeeper'
-table = 'student'
+table = 'stu'
 
 def read_from_hbase():
     conf = {"hbase.zookeeper.quorum": host, "hbase.mapreduce.inputtable": table}
@@ -35,7 +35,7 @@ def write_to_hbase():
             "mapreduce.output.fileoutputformat.outputdir":"/tmp"}
 
 
-    rawData = ['7,info,name,Rongcheng', '8,info,name,Guanhua']
+    rawData = ['9,info,name,Rongcheng', '10,info,name,Guanhua']
 
     sc = SparkContext(appName="PythonWriteFromHbase")
     sc.parallelize(rawData).map(lambda x: (x[0], x.split(','))).saveAsNewAPIHadoopDataset(conf=conf,
@@ -45,6 +45,6 @@ def write_to_hbase():
 
 if __name__ == '__main__':
 
-    read_from_hbase()
+   read_from_hbase()
 
-    #write_to_hbase()
+   #write_to_hbase()
