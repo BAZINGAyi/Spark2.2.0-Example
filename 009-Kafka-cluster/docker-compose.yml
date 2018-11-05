@@ -18,7 +18,7 @@ services:
       - "10024:22"
       - "9093:9092"
   web:
-    image: test/python:latest
+    image: dockerz99/python3.5:latest
     volumes:
       - .:/code
     stdin_open: true
