@@ -1,0 +1,25 @@
+version: '3'
+services:
+  zookeeper:
+    hostname: zookeeper
+    image: dockerz99/zookeeper:latest
+    ports:
+      - "10022:22"
+  kafka1:
+    hostname: kafka1
+    image: dockerz99/kafka:latest
+    ports:
+      - "10023:22"
+      - "9092:9092"
+  kafka2:
+    hostname: kafka2
+    image: dockerz99/kafka:latest
+    ports:
+      - "10024:22"
+      - "9093:9092"
+  web:
+    image: test/python:latest
+    volumes:
+      - .:/code
+    stdin_open: true
+    tty: true

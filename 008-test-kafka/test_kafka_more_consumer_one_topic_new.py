@@ -2,8 +2,8 @@ from kafka import KafkaConsumer
 from multiprocessing import Process
 
 group_id = "test-consumer-group"
-topic_name = "two-two-para"
-broker_address = ["kafka1:9092", "kafka2:9092"]
+topic_name = "down"
+broker_address = ["kafka1:9092", "kafka2:9093"]
 
 
 def consumer1():
@@ -20,7 +20,7 @@ def consumer1():
         # print("coumser1: " + message.value.decode('utf-8'))
         print("consumer1: %s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
                                              message.offset, message.key,
-                                             message.value))
+                                             message.value.decode('utf-8')))
 
 
 def consumer2():
