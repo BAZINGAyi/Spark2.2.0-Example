@@ -28,6 +28,6 @@ if __name__ == '__main__':
 
    # read_from_hdfs()
 
-    read_sql_from_hdfs()
+    #read_sql_from_hdfs()
 
-    #write_to_hdfs()
+    write_to_hdfs()
